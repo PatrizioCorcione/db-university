@@ -25,14 +25,26 @@
 - WHERE `period` = 'I semestre'
 - AND `year` = 1
 
-## Papar Information
+## Seleziona tutti gli appelli di esame che avvengono ne pomeriggio (dopo le 14) del 2020-06-20
 
--
+- SELECT \*
+- FROM `exams`
+- WHERE `date` = '2020-06-20'
+- AND HOUR(`hour`) >= 14
 
-## Papar Information
+## Seleziona tutti i corsi di lauerea magistrale
 
--
+- SELECT \*
+- FROM `degrees`
+- WHERE `level` = 'magistrale'
 
-## Papar Information
+## Da quanti dipartimenti è composta l'università
 
--
+- SELECT COUNT(\*)
+- FROM `departments`;
+
+## Quanti sono gli insegnanti che non hanno il numero di telefono
+
+- SELECT COUNT(\*)
+- FROM `teachers`
+- WHERE `phone` IS NULL
