@@ -16,7 +16,7 @@
 
 - SELECT \*
 - FROM `students`
-- WHERE YEAR(`date_of_birth`) < 1994
+- WHERE TIMESTAMPDIFF(YEAR,`date_of_birth`,CURDATE())> 30B
 
 ## Seleziona tutti i corsi del primo semestre del primo anno di qualsiasi corso di laruea
 
