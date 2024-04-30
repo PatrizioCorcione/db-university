@@ -73,6 +73,21 @@
 - WHERE
   `departments`.`name` = 'Dipartimento di Matematica'
 
-## Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
+## Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18.
 
--
+- SELECT
+  `exams`.`course_id` AS `corso`,
+  `students`.`id` AS `studente`,
+  MAX(`exam_student`.`vote`),
+  COUNT(`exam_student`.`vote`)
+- FROM
+  `students`
+- JOIN `exam_student` ON `students`.`id` = `exam_student`.`student_id`
+- JOIN `exams` ON `exams`.`id` = `exam_student`.`exam_id`
+- WHERE
+  `exam_student`.`vote` >= 18
+- GROUP BY
+  `students`.`id`,
+  `exams`.`course_id`
+- ORDER BY
+  `studente`
